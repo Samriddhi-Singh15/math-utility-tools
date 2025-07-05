@@ -1,1 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Itim&family=Righteous&family=Poly&family=Rancho&display=swap" rel="stylesheet">
 
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+	<title>Math Utility</title>
+  </head>
+
+  <body>
+    <h1 class="main-heading">Math's Utility Tools</h1>
+    <p class="subtitle">Quick And Easy :: Fraction,Coordinate and Polynomial</p>
+
+    <div class="box-container">
+      <div class="section-box">
+        <h2>Fraction</h2>
+        <ul>
+          <li>Add Fraction</li>
+          <li>Substract Fraction</li>
+          <li>Multiply Fraction</li>
+          <li>Divide Fraction</li>
+          <li>Convert to decimal</li>
+          <li>Simplify Fraction</li>
+          <li>Mixed to Improper</li>
+          <li>Improper to Mixed</li>
+          <li>Float Conversion</li>
+        </ul>
+        <div class="fraction-calc">
+          <input
+            type="text" id="frac1" placholder="Enter First Fraction(e.g=1/2)"/>
+          <input type="text" id="frac2" placholder="Enter Second Fraction(e.g=1/3)"/>
+          <button onclick="addFraction()">Add</button>
+					<button onclick="subtractFraction()">Subtract</button>
+          <button onclick="multiplyFraction()">Multiply</button>
+          <button onclick="divideFraction()">Divide</button>
+					<p id="frac-result"></p>
+        </div>
+        <div class="single-fraction">
+          <input
+            type="text"
+            id="single-frac"
+            placholder="enter a fraction(e.g.3/4)"
+          />
+          <button onclick="convertToDecimal()">Convert To Decimal</button>
+          <p id="single-frac-result"></p>
+        </div>
+		<div class="single-fraction">
+			<input type="text" id="simplify-frac" placeholder="Enter fraction (e.g. 8/12)" />
+			<button onclick="simplifyFraction()">Simplify</button>
+			<p id="simplify-result"></p>
+		</div>
+		<div class="single-fraction">
+			<input type="text" id="mixed-frac" placeholder="e.g. 2 1/3" />
+			<button onclick="mixedToImproper()">Mixed → Improper</button>
+			<p id="mixed-improper-result"></p>
+		</div>
+		<div class="single-fraction">
+			<input type="text" id="improper-frac" placeholder="e.g. 7/3" />
+			<button onclick="improperToMixed()">Improper → Mixed</button>
+			<p id="improper-mixed-result"></p>
+		</div>
+		<div class="single-fraction">
+			<input type="text" id="float-frac" placeholder="e.g. 5/8" />
+			<button onclick="floatConversion()">Convert to Float</button>
+			<p id="float-result"></p>
+		</div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <h2>Coordinate</h2>
+        <ul>
+          <li>Euclidean Distance</li>
+          <li>Distance from Origin</li>
+          <li>Midpoint of Two Points</li>
+          <li>Slope Between Two Points</li>
+          <li>Quadrant Finder</li>
+          <li>Point On Line Check</li>
+          <li>Shortest Distance From Point To Line</li>
+          <li>Slop Of Line</li>
+          <li>Y-Intercept Finder</li>
+        </ul>
+		<div class="coordinate-calc">
+			<input type="number"id="x1"placeholder="x1"/>
+			<input type="number"id="y1"placeholder="y1"/>
+			<input type="number"id="x2"placeholder="x1"/>
+			<input type="number"id="y2"placeholder="y2"/>
+			<button onclick="calculateEuclideanDistance()">Calculate Distance</button>
+			<p id="euclidean-result"></p>
+		 </div>
+		 <div class="coordinate-calc">
+			<input type="number"id="origin-x"placeholder="x"/>
+			<input type="number"id="origin-y"placeholder="y"/>
+			<button onclick="distanceFromOrigin()">Distance From Origin</button>
+			<p id="origin-result"></p>
+		 </div>
+		 <div class="coordinate-calc">
+            <input type="number" id="slope-x1" placeholder="x1" />
+            <input type="number" id="slope-y1" placeholder="y1" />
+            <input type="number" id="slope-x2" placeholder="x2" />
+            <input type="number" id="slope-y2" placeholder="y2" />
+            <button onclick="calculateSlope()">Slope</button>
+            <p id="slope-result"></p>
+        </div>
+		<div class="coordinate-calc">
+         <input type="number" id="quad-x" placeholder="x" />
+         <input type="number" id="quad-y" placeholder="y" />
+         <button onclick="findQuadrant()">Quadrant</button>
+         <p id="quad-result"></p>
+        </div>
+		<div class="line-calc">
+			<input type="number" id="line-A" placeholder="A (Ax + By + C = 0)" />
+			<input type="number" id="line-B" placeholder="B" />
+			<button onclick="lineSlope()">Line Slope</button>
+			<p id="line-slope-result"></p>
+		  </div>
+		  <div class="line-calc">
+			<input type="number" id="intercept-B" placeholder="B (Ax + By + C = 0)" />
+			<input type="number" id="intercept-C" placeholder="C" />
+			<button onclick="yIntercept()">Y-Intercept</button>
+			<p id="y-intercept-result"></p>
+		  </div>
+		  <div class="line-calc">
+			<input type="number" id="line-x1" placeholder="x1" />
+			<input type="number" id="line-y1" placeholder="y1" />
+			<input type="number" id="line-x2" placeholder="x2" />
+			<input type="number" id="line-y2" placeholder="y2" />
+			<button onclick="lineFromTwoPoints()">Line Equation</button>
+			<p id="line-equation-result"></p>
+		  </div>
+		  <div class="point-line-calc">
+          <input type="number" id="check-A" placeholder="A" />
+          <input type="number" id="check-B" placeholder="B" />
+          <input type="number" id="check-C" placeholder="C" />
+          <input type="number" id="check-x" placeholder="x" />
+          <input type="number" id="check-y" placeholder="y" />
+          <button onclick="isPointOnLine()"> Point on Line?</button>
+          <p id="point-line-result"></p>
+         </div>
+		  <div class="point-line-calc">
+			<input type="number" id="dist-A" placeholder="A" />
+			<input type="number" id="dist-B" placeholder="B" />
+			<input type="number" id="dist-C" placeholder="C" />
+			<input type="number" id="dist-x" placeholder="x" />
+			<input type="number" id="dist-y" placeholder="y" />
+			<button onclick="shortestDistanceToLine()"> Shortest Distance</button>
+			<p id="point-line-dist-result"></p>
+		  </div>
+		   
+      </div>
+
+		<div class="section-box">
+			<h2>Polynomial</h2>
+			<ul>
+			  <li>Add Polynomials</li>
+			  <li>Subtract Polynomials</li>
+			  <li>Multiply Polynomials</li>
+			  <li>Divide Polynomials</li>
+			</ul>
+		  
+			<div class="poly-calc">
+			  <input type="text" id="poly1" placeholder="e.g. 3,0,2" />
+			  <input type="text" id="poly2" placeholder="e.g. 1,4" />
+			  <button onclick="addPolynomials()">Add</button>
+			  <p id="poly-add-result"></p>
+			</div>
+		  
+			<div class="poly-calc">
+			  <input type="text" id="poly-sub1" placeholder="e.g. 3,0,2" />
+			  <input type="text" id="poly-sub2" placeholder="e.g. 1,4" />
+			  <button onclick="subtractPolynomials()">Subtract</button>
+			  <p id="poly-sub-result"></p>
+			</div>
+		  
+			<div class="poly-calc">
+			  <input type="text" id="poly-mul1" placeholder="e.g. 3,0,2" />
+			  <input type="text" id="poly-mul2" placeholder="e.g. 1,4" />
+			  <button onclick="multiplyPolynomials()">Multiply</button>
+			  <p id="poly-mul-result"></p>
+			</div>
+		  
+			<div class="poly-calc">
+			  <input type="text" id="poly-div1" placeholder="e.g. 3,0,2" />
+			  <input type="text" id="poly-div2" placeholder="e.g. 1,4" />
+			  <button onclick="dividePolynomials()"> Divide</button>
+			  <p id="poly-div-result"></p>
+			</div>
+		  </div>
+      </div>
+    </div>
+    <footer>made by Samriddhi</footer>
+  </body>
+</html>
