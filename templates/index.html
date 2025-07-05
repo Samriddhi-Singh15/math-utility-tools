@@ -5,10 +5,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Itim&family=Righteous&family=Poly&family=Rancho&display=swap" rel="stylesheet">
 
     
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     
-    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    
 	<title>Math Utility</title>
   </head>
 
@@ -44,7 +44,7 @@
           <input
             type="text"
             id="single-frac"
-            placholder="enter a fraction(e.g.3/4)"
+            placeholder="enter a fraction(e.g.3/4)"
           />
           <button onclick="convertToDecimal()">Convert To Decimal</button>
           <p id="single-frac-result"></p>
